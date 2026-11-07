@@ -154,6 +154,7 @@ const ACC = { en: [['map', 'The AI Money Map', '250 ⭐ once', 'Six stages in th
   ['syndicate', 'Синдикат', '6 000 ⭐ / мес', 'Всё из «Оператора», все гайды и раз в месяц разбор 1:1 портфеля или воронки. Только 3 места.']] };
 let L = 'en';
 try { L = localStorage.getItem('cs_lang') || 'en'; } catch (e) {}
+const qsLang = new URLSearchParams(location.search).get('lang'); if (qsLang === 'ru' || qsLang === 'en') L = qsLang;
 const $ = id => document.getElementById(id);
 const fmt = v => (L === 'ru' ? '$' + Math.round(v).toLocaleString('ru-RU').replace(/ /g, ' ') : '$' + Math.round(v).toLocaleString('en-US'));
 const open = url => { if (tg?.openLink) tg.openLink(url); else window.open(url, '_blank'); };
